@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #ifndef ZOO_H
 #define ZOO_H
 
@@ -42,7 +44,7 @@ public:
 	void Save(ofstream& ofs) const;//method to save the info to a text file
 	void Load(ifstream& ifs);//method to load the info from a text file
 	void SaveBin(ofstream& ofs) const;//method to save the info to a binary file
-	void LoadBin(ifstream& ifs);//method to load the info from a binary file
+	
 
 private:
 	char* m_name;

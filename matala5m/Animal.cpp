@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #include "Animal.h"
 
 Animal::Animal()//animal ctor thats sets the color "GRAY" and others to 0
@@ -57,8 +59,8 @@ float Animal::GetLifetime() const
 
 void Animal::save(ofstream& out) const//write the animal data to text file 
 {
-	out << strlen((typeid(*this).name() + 6)) << endl;
-	out << (typeid(*this).name()+6) << endl;
+	out << strlen(typeForDebug(typeid(*this).name())) << endl;
+	out << typeForDebug(typeid(*this).name()) << endl;
 	out << strlen(this->GetColor()) << endl;
 	out << this->GetColor() << endl;
 	out << this->GetLifetime() << endl;
@@ -70,7 +72,7 @@ void Animal::saveBin(ofstream& ofs) const//write the animal data to bin file
 {
 	int len = 0;
 	char type[2];
-	strncpy(type, typeid(*this).name() + 6, 2);
+	strncpy(type, typeForDebug(typeid(*this).name()), 2);
 	ofs.write((char*)type, 2);
 
 	len = strlen(this->m_color);
@@ -97,18 +99,7 @@ void Animal::Load(ifstream& ifs)//load the data of the animal from a text file
 	this->LoadSpecial(ifs);//send by inheritance to child to load his data from text file
 }
 
-void Animal::loadBin(ifstream& ifs)//load the data of the animal from a bin file
-{
-	int colorLen;
-	ifs.read((char*)&colorLen, sizeof(int));
-	delete[] this->m_color;
-	this->m_color = new char[colorLen + 1];
-	ifs.read(this->m_color, colorLen);
-	this->m_color[colorLen] = '\0';
-	ifs.read((char*)&this->m_avgLifetime, sizeof(float));
-	ifs.read((char*)&this->m_childCount, sizeof(int));
-	this->loadBinSpecial(ifs);//send by inheritance to child to load his data from bin file
-}
+
 
 
 const Animal& Animal::operator=(const Animal& a)//copy the animal data
@@ -125,5 +116,10 @@ const Animal& Animal::operator=(const Animal& a)//copy the animal data
 	return *this;
 }
 
+char* typeForDebug(const char* type)
+{
+	if ('0' <= type[0] && type[0] <= '9')
+		return (char*)(type + 1);
 
-
+	return (char*)(type + 6);
+}

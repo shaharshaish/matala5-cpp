@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #ifndef MAMMALSFISH_H
 #define MAMMALSFISH_H
 
@@ -17,7 +19,7 @@ public:
 	virtual void saveSpecial(ofstream& out)const;//save the MammalsFish data to text file
 	virtual void LoadSpecial(ifstream& ifs);//load the MammalsFish data from a text file
 	virtual void saveBinSpecial(ofstream& ofs) const;//save the MammalsFish data to a bin file
-	virtual void loadBinSpecial(ifstream& ifs);//load the MammalsFish data from a bin file
+	
 	virtual const MammalsFish& operator=(const MammalsFish& m);//active the Mammals and Fish operator= and then copies the MammalsFish data
 };
 

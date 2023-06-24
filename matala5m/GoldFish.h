@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #ifndef GOLDFISH_H
 #define GOLDFISH_H
 
@@ -18,7 +20,7 @@ public:
 	virtual void saveSpecial(ofstream& out)const;//save the GoldFish data to text file
 	virtual void LoadSpecial(ifstream& ifs);//load the GoldFish data from a text file
 	virtual void saveBinSpecial(ofstream& ofs) const;//save the GoldFish data to a bin file
-	virtual void loadBinSpecial(ifstream& ifs);//load the GoldFish data from a bin file
+	
 	virtual const GoldFish& operator=(const GoldFish& f);//active the MammalsFish operator= and then copies the GoldFish data
 
 protected:

@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #include "Mammals.h"
 
 Mammals::Mammals()
@@ -62,11 +64,7 @@ void Mammals::saveBinSpecial(ofstream& ofs) const//save the Mammals data to a bi
 	ofs.write((char*)&this->m_milkLiters, sizeof(float));
 }
 
-void Mammals::loadBinSpecial(ifstream& ifs)//load the Mammals data from a bin file
-{
-	ifs.read((char*)&this->m_pregnancyTime, sizeof(float));
-	ifs.read((char*)&this->m_milkLiters, sizeof(float));
-}
+
 
 const Mammals& Mammals::operator=(const Mammals& m)//active the Animal operator= and then copies the Mammals data
 {

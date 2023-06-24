@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #ifndef HORSE_H
 #define HORSE_H
 
@@ -17,7 +19,7 @@ public:
 	virtual void saveSpecial(ofstream& out)const;//save the Horse data to text file
 	virtual void LoadSpecial(ifstream& ifs);//load the Horse data from a text file
 	virtual void saveBinSpecial(ofstream& ofs) const;//save the Horse data to a bin file
-	virtual void loadBinSpecial(ifstream& ifs);//load the Horse data from a bin file
+	
 	virtual const Horse& operator=(const Horse& h);//active the Mammals operator= and then copies the Horse data
 
 protected:

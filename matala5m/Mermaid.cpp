@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #include "Mermaid.h"
 
 
@@ -94,21 +96,7 @@ void Mermaid::saveBinSpecial(ofstream& ofs) const//active MammalsFish saveBinSpe
 	ofs.write(this->m_lastName, len);
 }
 
-void Mermaid::loadBinSpecial(ifstream& ifs)//active MammalsFish loadBinSpecial then load the Mermaid data from a bin file
-{
-	MammalsFish::loadBinSpecial(ifs);
-	int len;
-	ifs.read((char*)&len, sizeof(len));
-	this->m_firstName = new char[len + 1];
-	ifs.read(this->m_firstName, len);
-	this->m_firstName[len] = '\0';
 
-	ifs.read((char*)&len, sizeof(len));
-	this->m_lastName = new char[len + 1];
-	ifs.read(this->m_lastName, len);
-	this->m_lastName[len] = '\0';
-
-}
 
 const Mermaid& Mermaid::operator=(const Mermaid& m)//active the MammalsFish operator= and then copies the Mermaid data
 {

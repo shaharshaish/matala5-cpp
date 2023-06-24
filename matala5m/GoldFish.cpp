@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #include "GoldFish.h"
 
 
@@ -65,12 +67,7 @@ void GoldFish::saveBinSpecial(ofstream& ofs) const//active MammalsFish saveBinSp
 	ofs.write((char*)&this->m_avgLength, sizeof(float));
 }
 
-void GoldFish::loadBinSpecial(ifstream& ifs)//active MammalsFish loadBinSpecial then load the GoldFish data from a bin file
-{
-	MammalsFish::loadBinSpecial(ifs);
-	ifs.read((char*)&this->m_avgWeight, sizeof(float));
-	ifs.read((char*)&this->m_avgLength, sizeof(float));
-}
+
 
 const GoldFish& GoldFish::operator=(const GoldFish& f)//active the MammalsFish operator= and then copies the GoldFish data
 {

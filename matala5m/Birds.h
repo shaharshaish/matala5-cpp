@@ -1,4 +1,6 @@
- #ifndef BIRDS_H
+//name:shahar shaish
+//id:208753095 
+#ifndef BIRDS_H
 #define BIRDS_H
 
 #include "Animal.h"
@@ -17,7 +19,7 @@ public:
 	virtual void saveSpecial(ofstream& out)const;//save the Birds data to text file
 	virtual void LoadSpecial(ifstream& ifs);//load the Birds data from a text file
 	virtual void saveBinSpecial(ofstream& ofs) const;//save the Birds data to a bin file
-	virtual void loadBinSpecial(ifstream& ifs);//load the Birds data from a bin file
+	
 	virtual const Birds& operator=(const Birds& b);//active the Animal operator= and then copies the Birds data
 
 protected:

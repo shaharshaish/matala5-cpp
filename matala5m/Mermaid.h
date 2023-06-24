@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #ifndef MERMAID_H
 #define MERMAID_H
 
@@ -18,7 +20,7 @@ public:
 	virtual void saveSpecial(ofstream& out)const;//save the Mermaid data to text file
 	virtual void LoadSpecial(ifstream& ifs);//load the Mermaid data from a text file
 	virtual void saveBinSpecial(ofstream& ofs) const;//save the Mermaid data to a bin file
-	virtual void loadBinSpecial(ifstream& ifs);//load the Mermaid data from a bin file
+	
 	virtual const Mermaid& operator=(const Mermaid& m);//active the MammalsFish operator= and then copies the Mermaid data
 
 protected:

@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #include "Horse.h"
 
 Horse::Horse():Animal(),Mammals()//set the default color to GRAY and other params to 0
@@ -66,15 +68,7 @@ void Horse::saveBinSpecial(ofstream& ofs) const//active Mammals saveBinSpecial a
 	ofs.write(this->m_type, len);
 }
 
-void Horse::loadBinSpecial(ifstream& ifs)//active Mammals loadBinSpecial and then load the Horse data from a bin file
-{
-	Mammals::loadBinSpecial(ifs);
-	int len;
-	ifs.read((char*)&len, sizeof(len));
-	this->m_type = new char[len + 1];
-	ifs.read(this->m_type, len);
-	this->m_type[len] = '\0';
-}
+
 
 const Horse& Horse::operator=(const Horse& h)//active the Mammals operator= and then copies the Horse data
 {

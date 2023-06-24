@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #ifndef FISH_H
 #define FISH_H
 
@@ -18,7 +20,7 @@ public:
 	virtual void saveSpecial(ofstream& out)const;//save the Fish data to text file
 	virtual void LoadSpecial(ifstream& ifs);//load the Fish data from a text file
 	virtual void saveBinSpecial(ofstream& ofs) const;//save the Fish data to a bin file
-	virtual void loadBinSpecial(ifstream& ifs);//load the Fish data from a bin file
+	
 	virtual const Fish& operator=(const Fish& f);//active the Animal operator= and then copies the Fish data
 
 protected:

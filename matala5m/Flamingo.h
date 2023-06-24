@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #ifndef FLAMINGO_H
 #define FLAMINGO_H
 
@@ -17,7 +19,7 @@ public:
 	virtual void saveSpecial(ofstream& out)const;//save the Flamingo data to text file
 	virtual void LoadSpecial(ifstream& ifs);//load the Flamingo data from a text file
 	virtual void saveBinSpecial(ofstream& ofs) const;//save the Flamingo data to a bin file
-	virtual void loadBinSpecial(ifstream& ifs);//load the Flamingo data from a bin file
+	
 	virtual const Flamingo& operator=(const Flamingo& f);//active the Birds operator= and then copies the Flamingo data
 
 protected:

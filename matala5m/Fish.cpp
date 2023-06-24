@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #include "Fish.h"
 
 
@@ -62,11 +64,6 @@ void Fish::saveBinSpecial(ofstream& ofs) const//save the Fish data to a bin file
 	ofs.write((char*)&this->m_gillsCount, sizeof(int));
 }
 
-void Fish::loadBinSpecial(ifstream& ifs)//load the Fish data from a bin file
-{
-	ifs.read((char*)&this->m_finCount, sizeof(int));
-	ifs.read((char*)&this->m_gillsCount, sizeof(int));
-}
 
 const Fish& Fish::operator=(const Fish& f)//active the Animal operator= and then copies the Fish data
 {

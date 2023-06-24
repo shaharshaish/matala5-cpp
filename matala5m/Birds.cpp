@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #include "Birds.h"
 
 Birds::Birds()
@@ -49,10 +51,7 @@ void Birds::saveBinSpecial(ofstream& ofs) const//save the Birds data to a bin fi
 	ofs.write((char*)&this->m_incubationTime, sizeof(float));
 }
 
-void Birds::loadBinSpecial(ifstream& ifs)//load the Birds data from a bin file
-{
-	ifs.read((char*)&this->m_incubationTime, sizeof(float));
-}
+
 
 const Birds& Birds::operator=(const Birds& b)//active the Animal operator= and then copies the Birds data
 {

@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
@@ -33,13 +35,14 @@ public:
 	virtual const Animal& operator=(const Animal& a);//copy the animal data
 	void Load(ifstream& ifs);//load the data of the animal from a text file
 	virtual void LoadSpecial(ifstream& ifs) = 0;//childs function that loads child data from a text file
-	void loadBin(ifstream& ifs);//load the data of the animal from a bin file
-	virtual void loadBinSpecial(ifstream& ifs) = 0;//childs function that loads child data from a bin file
+	
 	
 protected:
 	char* m_color;
 	int		m_childCount;
 	float	m_avgLifetime;
 };
+
+char* typeForDebug(const char* type);
 
 #endif // ifndef

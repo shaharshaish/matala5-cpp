@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #include "Flamingo.h"
 
 
@@ -53,11 +55,6 @@ void Flamingo::saveBinSpecial(ofstream& ofs) const//active Birds saveBinSpecial 
 	ofs.write((char*)&this->m_avgHeight, sizeof(float));
 }
 
-void Flamingo::loadBinSpecial(ifstream& ifs)//active Birds loadBinSpecial then load the Flamingo data from a bin file
-{
-	Birds::loadBinSpecial(ifs);
-	ifs.read((char*)&this->m_avgHeight, sizeof(float));
-}
 
 const Flamingo& Flamingo::operator=(const Flamingo& f)//active the Birds operator= and then copies the Flamingo data
 {

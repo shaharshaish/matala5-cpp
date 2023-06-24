@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #include "Zoo.h"
 
 Zoo::Zoo() // zoo default ctor
@@ -59,7 +61,8 @@ Zoo::Zoo(ifstream& in_file)//c'tor that gets a binary file and loads the data of
 	in_file.read(this->m_closeHours, len);
 	this->m_closeHours[len] = '\0';
 
-	in_file.read((char*)&this->m_numOfAnimals, sizeof(int));
+	in_file.read((char*)&(this->m_numOfAnimals), sizeof(int));
+	numberOfAnimals = this->m_numOfAnimals;
 	this->m_animals = new Animal* [numberOfAnimals];
 
 	for (int i = 0; i < numberOfAnimals; i++)//reads the type of the animal and creats the new animal(ifstream ctor)
@@ -103,6 +106,11 @@ Zoo::~Zoo()//zoo dtor
 	delete[] this->m_address;
 	delete[] this->m_openHours;
 	delete[] this->m_closeHours;
+
+	for (int i = 0; i < this->m_numOfAnimals; i++)
+	{
+		delete this->m_animals[i];
+	}
 
 	delete[] this->m_animals;
 }
@@ -303,69 +311,7 @@ void Zoo::SaveBin(ofstream& ofs) const//method to save the info to a binary file
 	}
 }
 
-void Zoo::LoadBin(ifstream& ifs)
-{
-	int len = 0;
-	int numberOfAnimals = 0;
-	char type[2];
-	ifs.read((char*)&len, sizeof(int));
-	delete[] this->m_name;
-	this->m_name = new char[len + 1];
-	ifs.read(this->m_name, len);
-	this->m_name[len] = '\0';
 
-	ifs.read((char*)&len, sizeof(int));
-	delete[] this->m_address;
-	this->m_address = new char[len + 1];
-	ifs.read(this->m_address, len);
-	this->m_address[len] = '\0';
-
-	ifs.read((char*)&this->m_ticketPrice, sizeof(float));
-
-	ifs.read((char*)&len, sizeof(int));
-	delete[] this->m_openHours;
-	this->m_openHours = new char[len + 1];
-	ifs.read(this->m_openHours, len);
-	this->m_openHours[len] = '\0';
-
-	ifs.read((char*)&len, sizeof(int));
-	delete[] this->m_closeHours;
-	this->m_closeHours = new char[len + 1];
-	ifs.read(this->m_closeHours, len);
-	this->m_closeHours[len] = '\0';
-
-	ifs.read((char*)&numberOfAnimals, sizeof(int));
-	this->m_numOfAnimals = numberOfAnimals;
-	delete this->m_animals;
-	this->m_animals = new Animal * [numberOfAnimals];
-
-	for (int i = 0; i < numberOfAnimals; i++)//checks the type of the animal and by that sends to to ifstream ctor
-	{
-		ifs.read(type, 2 * sizeof(char));
-		if (!strncmp(type, "Horse", 2))
-		{
-			this->m_animals[i] = new Horse();
-		}
-		
-		else if (!strncmp(type, "Flamingo", 2))
-		{
-			this->m_animals[i] = new Flamingo();
-		}
-		
-		else if (!strncmp(type, "Mermaid", 2))
-		{
-			this->m_animals[i] = new Mermaid();
-		}
-		
-		else if (!strncmp(type, "GoldFish", 2))
-		{
-			this->m_animals[i] = new GoldFish();
-		}
-		
-		this->m_animals[i]->loadBin(ifs);
-	}
-	
-}
 
 ofstream& operator<<(ofstream& out, const Zoo& z)//operator to write the zoo to a text file
 {//writes the len of every char* before the char*
@@ -429,7 +375,7 @@ ifstream& operator>>(ifstream& in, Zoo& z)//operator to read the zoo from a text
 		in >> len;
 		ch = new char[len + 1];
 		in.ignore();
-		in.getline(ch, len + 1);
+		in.getline(ch, len +1);
 		if (!strcmp(ch, "Horse"))
 		{
 			z.m_animals[i] = new Horse();

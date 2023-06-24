@@ -1,3 +1,5 @@
+//name:shahar shaish
+//id:208753095
 #include "MammalsFish.h"
 
 
@@ -44,11 +46,7 @@ void MammalsFish::saveBinSpecial(ofstream& ofs) const//active Mammals and Fish s
 	Fish::saveBinSpecial(ofs);
 }
 
-void MammalsFish::loadBinSpecial(ifstream& ifs)//active Mammals and Fish loadBinSpecial 
-{
-	Mammals::loadBinSpecial(ifs);
-	Fish::loadBinSpecial(ifs);
-}
+
 
 const MammalsFish& MammalsFish::operator=(const MammalsFish& m)//active the Mammals and Fish operator= 
 {
